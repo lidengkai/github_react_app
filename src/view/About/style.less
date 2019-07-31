@@ -1,0 +1,43 @@
+@import '@/config.less';
+
+.root {
+  width: 100%;
+
+  .card {
+    .px(margin, 48, 48, 0);
+    background-color: #ffffff;
+    .px(padding, 48);
+
+    .line {
+      .clearfix;
+
+      +.line {
+        .px(margin-top, 36);
+      }
+
+      .left {
+        .px(width, 180);
+        .px(padding-right, 16);
+        word-break: break-all;
+        .px(font-size, 32);
+        text-align: right;
+        float: left;
+      }
+
+      .right {
+        word-break: break-all;
+        .px(font-size, 32);
+        text-align: left;
+        overflow: hidden;
+      }
+    }
+
+    .text {
+      width: 100%;
+      .px(line-height, 32);
+      .px(font-size, 32);
+      color: #4C5C8A;
+      text-align: center;
+    }
+  }
+}

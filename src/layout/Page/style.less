@@ -1,0 +1,44 @@
+@import '@/config.less';
+@import "./animation.less";
+
+.root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .page {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    pointer-events: none;
+    z-index: 1;
+
+    .group {
+      .animation-list;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+
+    .icon {
+      .px(width, 30);
+      .px(height, 30);
+    }
+  }
+
+  .animation-ing {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+}

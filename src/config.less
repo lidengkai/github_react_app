@@ -1,0 +1,173 @@
+// config
+@x: 10 / 750;
+
+// 全局
+@theme: #1890ff;
+@theme-hover: #40a9ff;
+@background-color: #f0f2f5;
+
+@black-color: rgba(0, 0, 0, .65);
+@white-color: rgba(255, 255, 255, .65);
+@border-color: #d9d9d9;
+@success-color: #52c41a;
+@error-color: #f5222d;
+@warn-color: #fa8c16;
+@disabled-color: #adadad;
+
+@font-family: PingFangSC-Regular,
+  "Helvetica Neue",
+  Helvetica,
+  Arial,
+  "Microsoft Yahei",
+  "Hiragino Sans GB",
+  "WenQuanYi Micro Hei",
+  sans-serif !important;
+
+// 单位
+@unit: rem;
+
+.unit (@px) {
+  @value: @px;
+}
+
+.unit (@px) when (isnumber(@px)) and (isunit(@px, '')) {
+  @value: unit((@px * @x), @unit);
+}
+
+.unit (@px) when (isruleset(@px)) {
+  @value: @px[@value];
+}
+
+.px(@key, @px1) {
+  @value1: .unit(@px1)[@value];
+  @{key}: @value1;
+}
+
+.px(@key, @px1, @px2) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @{key}: @value1 @value2;
+}
+
+.px(@key, @px1, @px2, @px3) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @value3: .unit(@px3)[@value];
+  @{key}: @value1 @value2 @value3;
+}
+
+.px(@key, @px1, @px2, @px3, @px4) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @value3: .unit(@px3)[@value];
+  @value4: .unit(@px4)[@value];
+  @{key}: @value1 @value2 @value3 @value4;
+}
+
+.px(@key, @px1, @px2, @px3, @px4, @px5) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @value3: .unit(@px3)[@value];
+  @value4: .unit(@px4)[@value];
+  @value5: .unit(@px5)[@value];
+  @{key}: @value1 @value2 @value3 @value4 @value5;
+}
+
+.fn(@function, @px1) {
+  @value1: .unit(@px1)[@value];
+  @value: e('@{function}(@{value1})');
+}
+
+.fn(@function, @px1, @px2) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @value: e('@{function}(@{value1} @{value2})');
+}
+
+.fn(@function, @px1, @px2, @px3) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @value3: .unit(@px3)[@value];
+  @value: e('@{function}(@{value1} @{value2} @{value3})');
+}
+
+.fn(@function, @px1, @px2, @px3, @px4) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @value3: .unit(@px3)[@value];
+  @value4: .unit(@px4)[@value];
+  @value: e('@{function}(@{value1} @{value2} @{value3} @{value4})');
+}
+
+.fn(@function, @px1, @px2, @px3, @px4, @px5) {
+  @value1: .unit(@px1)[@value];
+  @value2: .unit(@px2)[@value];
+  @value3: .unit(@px3)[@value];
+  @value4: .unit(@px4)[@value];
+  @value5: .unit(@px5)[@value];
+  @value: e('@{function}(@{value1} @{value2} @{value3} @{value4} @{value5})');
+}
+
+.clearfix() {
+  &::after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+  }
+}
+
+.ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis(@line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+  overflow: hidden;
+}
+
+.font-family() {
+  font-family: @font-family;
+}
+
+.font-family(@font) {
+  font-family: @font, @font-family;
+}
+
+.one-border(@radius, @color) {
+  position: relative;
+
+  &::before {
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    .px(border-radius, @radius);
+    border: 1px solid @color;
+    transform-origin: left top;
+    transform: translate(-50%, -50%);
+  }
+
+  .set-before(@ratio, @scale) {
+
+    @media (-webkit-min-device-pixel-ratio:@ratio),
+    (min-device-pixel-ratio:@ratio) {
+      &::before {
+        .px(border-radius, @radius * @scale);
+        width: calc(@scale * 100%);
+        height: calc(@scale * 100%);
+        transform: scale(1/@scale) translate(-50%, -50%);
+      }
+    }
+  }
+
+  .set-before(1.25, 2);
+  .set-before(2.25, 3);
+}

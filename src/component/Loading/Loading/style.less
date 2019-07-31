@@ -1,0 +1,29 @@
+@import '@/config.less';
+
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+
+  &.fixed {
+    position: fixed;
+  }
+
+  .icon {
+    .px(width, 64);
+    .px(height, 64);
+    background-image: url('@/assets/component/loading.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+    margin: auto;
+  }
+}

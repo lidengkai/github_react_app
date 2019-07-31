@@ -1,0 +1,57 @@
+@import '@/config.less';
+
+@time: 300ms;
+
+.root {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(101%);
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  // 左边进场
+  &.left-into:global(-enter) {
+    transform: translateX(-100%);
+  }
+
+  &.left-into:global(-enter-active) {
+    transform: translateX(0);
+    transition: transform @time;
+  }
+
+  // 右边进场
+  &.right-into:global(-enter) {
+    transform: translateX(100%);
+  }
+
+  &.right-into:global(-enter-active) {
+    transform: translateX(0);
+    transition: transform @time;
+  }
+
+  // 左边离场
+  &.left-leave:global(-exit) {
+    transform: translateX(0);
+  }
+
+  &.left-leave:global(-exit-active) {
+    transform: translateX(-100%);
+    transition: transform @time;
+  }
+
+  // 右边离场
+  &.right-leave:global(-exit) {
+    transform: translateX(0);
+  }
+
+  &.right-leave:global(-exit-active) {
+    transform: translateX(100%);
+    transition: transform @time;
+  }
+}

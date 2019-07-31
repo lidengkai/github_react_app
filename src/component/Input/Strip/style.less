@@ -1,0 +1,27 @@
+@import '@/config.less';
+
+.root {
+  width: 100%;
+  .px(height, 88);
+  .px(padding, 0, 48);
+  border: 1px solid @border-color;
+  .px(border-radius, 40);
+
+  .left {
+    .px(width, 88);
+    height: 100%;
+    float: left;
+    .clearfix;
+  }
+
+  .right {
+    height: 100%;
+    overflow: hidden;
+
+    .input {
+      width: 100%;
+      height: 100%;
+      .px(font-size, 32);
+    }
+  }
+}

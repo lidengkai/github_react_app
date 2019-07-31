@@ -1,0 +1,108 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "globals": {
+    "React": false,
+    "memo": false,
+    "useState": false,
+    "useMemo": false,
+    "useCallback": false,
+    "useEffect": false,
+    "useRef": false,
+    "useContext": false,
+    "useReducer": false,
+    "BASE_API": false,
+    "process": false,
+    "WEBPACK_MODE": false,
+    "WEBPACK_ENV": false,
+    "FC": false,
+    "ReactNode": false,
+    "CSSProperties": false,
+    "ComponentType": false,
+    "GetState": false,
+    "MapStateToProps": false,
+    "Ajax": false,
+    "AjaxResponse": false
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module",
+    "ecmaVersion": 7
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react"
+  ],
+  "rules": {
+    "quotes": [
+      2,
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "camelcase": 0,
+    "eol-last": 1,
+    "indent": [
+      1,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-console": 0,
+    "no-debugger": 2,
+    "no-var": 1,
+    "no-alert": 2,
+    "no-class-assign": 2,
+    "no-cond-assign": 2,
+    "no-const-assign": 2,
+    "no-delete-var": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-duplicate-case": 2,
+    "no-extra-semi": 1,
+    "no-func-assign": 2,
+    "no-irregular-whitespace": 2,
+    "no-redeclare": 2,
+    "no-spaced-func": 1,
+    "no-this-before-super": 2,
+    "no-trailing-spaces": 1,
+    "no-undef": 2,
+    "no-unused-vars": 0,
+    "no-use-before-define": 2,
+    "jsx-quotes": [
+      2,
+      "prefer-double"
+    ],
+    "react/display-name": 0,
+    "react/jsx-boolean-value": 1,
+    "react/jsx-closing-bracket-location": 1,
+    "react/jsx-curly-spacing": 1,
+    "react/jsx-equals-spacing": 1,
+    "react/jsx-key": 1,
+    "react/jsx-no-bind": 0,
+    "react/jsx-no-undef": 0,
+    "react/prop-types": 0
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    },
+    "import/ignore": [
+      "node_modules"
+    ]
+  }
+}

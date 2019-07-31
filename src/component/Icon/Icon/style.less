@@ -1,0 +1,63 @@
+@import '@/config.less';
+
+.image {
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  text-align: center;
+
+  &::before {
+    content: ' ';
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &::after {
+    content: ' ';
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+
+  &.align-center {
+    text-align: center;
+  }
+
+  &.vertical-top .content {
+    vertical-align: top;
+  }
+
+  &.vertical-bottom .content {
+    vertical-align: bottom;
+  }
+
+  &.vertical-middle .content {
+    vertical-align: middle;
+  }
+}

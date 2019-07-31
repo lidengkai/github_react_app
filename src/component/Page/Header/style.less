@@ -1,0 +1,72 @@
+@import '@/config.less';
+
+.root {
+  width: 100%;
+  height: 100%;
+  .px(padding, 0, 48);
+  background-color: @theme;
+  color: #ffffff;
+
+  .body {
+    width: 100%;
+    height: 100%;
+    .px(padding, 0, 96);
+    font-size: 0;
+    text-align: center;
+    position: relative;
+
+    .left {
+      .px(width, 96);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .arrow {
+        .px(width, 32);
+        .px(height, 32);
+        background-image: url('@/assets/component/page-goback.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
+    }
+
+    &::before {
+      content: ' ';
+      width: 0;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      visibility: hidden;
+    }
+
+    .content {
+      .px(font-size, 36);
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &::after {
+      content: ' ';
+      width: 0;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      visibility: hidden;
+    }
+
+    .right {
+      .px(width, 96);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

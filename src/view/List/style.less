@@ -1,0 +1,15 @@
+@import '@/config.less';
+
+.root {
+  width: 100%;
+
+  .item {
+    .px(margin, 48, 48, 48);
+    background-color: #ffffff;
+    .px(padding, 48);
+
+    +.item {
+      .px(margin-top, 0);
+    }
+  }
+}

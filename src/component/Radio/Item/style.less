@@ -1,0 +1,14 @@
+@import '@/config.less';
+
+.root {
+  .px(line-height, 48);
+  .px(padding-left, 42);
+  background-image: url('@/assets/component/radio.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  .px(background-size, 30, auto);
+
+  &.active {
+    background-image: url('@/assets/component/radio-active.svg');
+  }
+}

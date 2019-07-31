@@ -1,0 +1,44 @@
+@import '@/config.less';
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, .35);
+
+  &:not(.show) {
+    display: none;
+  }
+
+  .container {
+    .px(width, 560);
+    .px(border-radius, 8);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+
+    .footer {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      .px(font-size, 32);
+      color: @theme;
+
+      .item {
+        flex: 1;
+        border-top: 1px solid @border-color;
+        text-align: center;
+        .px(line-height, 76);
+
+        +.item {
+          border-left: 1px solid @border-color;
+        }
+      }
+    }
+  }
+}

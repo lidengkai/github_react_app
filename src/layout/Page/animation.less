@@ -1,0 +1,108 @@
+@import '@/config.less';
+
+@time: 300ms;
+
+.animation-list() {
+
+  // 左边进场
+  .left-into:global(-enter) {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .left-into:global(-enter-active) {
+    transform: translateX(0);
+    transition: transform @time;
+  }
+
+  // 右边进场
+  .right-into:global(-enter) {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+  }
+
+  .right-into:global(-enter-active) {
+    transform: translateX(0);
+    transition: transform @time;
+  }
+
+  // 左边离场
+  .left-leave:global(-exit) {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .left-leave:global(-exit-active) {
+    transform: translateX(-100%);
+    transition: transform @time;
+  }
+
+  // 右边离场
+  .right-leave:global(-exit) {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .right-leave:global(-exit-active) {
+    transform: translateX(100%);
+    transition: transform @time;
+  }
+
+  // 左边进场，原页面跟随
+  .follow-left-into:global(-enter) {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .follow-left-into:global(-enter-active) {
+    transform: translateX(0);
+    transition: transform @time;
+  }
+
+  .follow-left-into:global(-exit) {
+    transform: translateX(0);
+  }
+
+  .follow-left-into:global(-exit-active) {
+    transform: translateX(100%);
+    transition: transform @time;
+  }
+
+  // 右边进场，原页面跟随
+  .follow-right-into:global(-enter) {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+  }
+
+  .follow-right-into:global(-enter-active) {
+    transform: translateX(0);
+    transition: transform @time;
+  }
+
+  .follow-right-into:global(-exit) {
+    transform: translateX(0);
+  }
+
+  .follow-right-into:global(-exit-active) {
+    transform: translateX(-100%);
+    transition: transform @time;
+  }
+}

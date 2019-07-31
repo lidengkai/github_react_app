@@ -1,0 +1,47 @@
+@import '@/config.less';
+
+@time: 300ms;
+
+.root {
+  width: 100%;
+  position: fixed;
+  top: 101vh;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
+  text-align: center;
+
+  &.animation:global(-enter) {
+    top: 100vh;
+  }
+
+  &.animation:global(-enter-active) {
+    top: 65vh;
+    transition: top @time;
+  }
+
+  .box {
+    display: inline-block;
+    max-width: 80%;
+    .px(padding, 12, 24);
+    .px(border-radius, 8);
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, .35);
+    text-align: left;
+    .px(font-size, 28);
+    color: #ffffff;
+    .clearfix;
+
+    .icon {
+      .px(width, 40);
+      .px(height, 44);
+      .px(margin-right, 12);
+      float: left;
+    }
+
+    .body {
+      overflow: hidden;
+      .px(line-height, 44);
+    }
+  }
+}
